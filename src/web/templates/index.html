@@ -1,4 +1,5 @@
 pommes
+<h1 id="tdata"></h1>
 <script>
     var loc = window.location
     var wsStart = 'ws://'
@@ -8,6 +9,6 @@ pommes
     var endpoint = wsStart + loc.host + loc.pathname
     var socket = new WebSocket(endpoint)
     socket.onmessage = function(e){
-        window.alert(e.data)
+        document.getElementById("tdata").innerHTML = e.data
     }    
 </script>
