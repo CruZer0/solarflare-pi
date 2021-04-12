@@ -1,8 +1,6 @@
 pommes
 <script>
-
     var loc = window.location
-
     var wsStart = 'ws://'
     if (loc.protocol == 'https'){
         wsStart = 'ws://'
@@ -10,8 +8,6 @@ pommes
     var endpoint = wsStart + loc.host + loc.pathname
     var socket = new WebSocket(endpoint)
     socket.onmessage = function(e){
-        console.log("message", e)
+        window.alert(e.data)
     }    
 </script>
-
-<h1 id="app"></h1>

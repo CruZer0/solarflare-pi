@@ -2,6 +2,7 @@ import asyncio
 import json
 from django.contrib.auth import get_user_model
 from channels.consumer import AsyncConsumer
+from .tempclient import getTempTCP
 
 class TempConsumer(AsyncConsumer):
     async def websocket_connect(self, event):
@@ -9,15 +10,17 @@ class TempConsumer(AsyncConsumer):
         await self.send({
             "type" : "websocket.accept"
         })
-        await self.send({
-            "type" : "websocket.send",
-            "text" : "Allahu Ackbar"
-        })
-        await asyncio.sleep(10)
+        i = 0
+        while (i < 10000):
+            await self.send({
+                "type" : "websocket.send",
+                "text" : getTempTCP('192.168.178.48',5005)
+                })
+            i = i+1
+            await asyncio.sleep(3)
         await self.send({
             "type" : "websocket.close"
-        }
-        )
+        })
     
     async def websocket_receive(self, event):
         print("recieve", event)
