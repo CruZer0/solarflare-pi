@@ -2,4 +2,14 @@
 /Lib/
 /Scripts/
 /pyvenv.cfg
+/lib
+/lib64
+/bin
+/share
+/src/solarpi/__pycache__
+/src/tcore/__pycache__
+/src/tcore/migrations/
+/src/web/__pycache__
+/src/web/migrations/
+/src/db.sqlite3
 
